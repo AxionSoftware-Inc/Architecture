@@ -1,26 +1,151 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+  --background: #f7f4ef;
+  --foreground: #111111;
+  --muted: #6e665d;
+  --accent: #b07a47;
+  --accent-strong: #8b5931;
+  --card: #ffffff;
+  --sand: #e9e1d6;
+  --stone: #cbc1b4;
+  --shadow: 0 24px 60px -30px rgba(17, 17, 17, 0.45);
 
-@theme inline {
+  /* Mapped for Tailwind v4 compatibility if needed, or fallback */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-body);
 }
 
 body {
-  background: var(--background);
+  background: radial-gradient(1200px 800px at 20% -10%,
+      #fdfbf7 10%,
+      transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, #efe7dc 0%, transparent 55%),
+    var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.display-font {
+  font-family: var(--font-display), "Times New Roman", serif;
+}
+
+.section {
+  padding: 5.5rem 0;
+}
+
+.container-shell {
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+}
+
+.grid-lines {
+  background-image: linear-gradient(to right,
+      rgba(15, 15, 15, 0.08) 1px,
+      transparent 1px),
+    linear-gradient(to bottom,
+      rgba(15, 15, 15, 0.08) 1px,
+      transparent 1px);
+  background-size: 80px 80px;
+  opacity: 0.35;
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=800&q=40");
+  mix-blend-mode: overlay;
+  opacity: 0.12;
+  pointer-events: none;
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.9s ease-out both;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-slow-spin {
+  animation: slowSpin 16s linear infinite;
+}
+
+.reveal-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.reveal-delay-2 {
+  animation-delay: 0.3s;
+}
+
+.reveal-delay-3 {
+  animation-delay: 0.45s;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes slowSpin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes scaleSlow {
+  0% {
+    transform: scale(1);
+  }
+
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.animate-scale-slow {
+  animation: scaleSlow 20s linear infinite alternate;
 }
