@@ -1,20 +1,22 @@
 @import "tailwindcss";
+@import "./design-system.css";
 
 :root {
-  --background: #f7f4ef;
-  --foreground: #111111;
-  --muted: #6e665d;
-  --accent: #b07a47;
-  --accent-strong: #8b5931;
-  --card: #ffffff;
-  --sand: #e9e1d6;
-  --stone: #cbc1b4;
-  --shadow: 0 24px 60px -30px rgba(17, 17, 17, 0.45);
+  /* 🔄 Compatibility Layer: Mapping old variables to new Design System */
+  --background: var(--color-bg-main);
+  --foreground: var(--color-text-main);
+  --muted: var(--color-muted);
+  --accent: var(--color-brand-primary);
+  --accent-strong: var(--color-brand-dark);
+  --card: var(--color-bg-card);
+  --sand: var(--color-sand);
+  --stone: var(--color-stone);
+  --shadow: var(--shadow-main);
 
-  /* Mapped for Tailwind v4 compatibility if needed, or fallback */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-body);
+  /* Tailwind/Framework mappings */
+  --color-background: var(--color-bg-main);
+  --color-foreground: var(--color-text-main);
+  --font-sans: var(--font-family-body);
 }
 
 body {
@@ -22,9 +24,9 @@ body {
       #fdfbf7 10%,
       transparent 60%),
     radial-gradient(900px 500px at 90% 10%, #efe7dc 0%, transparent 55%),
-    var(--background);
-  color: var(--foreground);
-  font-family: var(--font-body), sans-serif;
+    var(--color-bg-main);
+  color: var(--color-text-main);
+  font-family: var(--font-family-body);
 }
 
 a {
@@ -33,7 +35,7 @@ a {
 }
 
 .display-font {
-  font-family: var(--font-display), "Times New Roman", serif;
+  font-family: var(--font-family-display);
 }
 
 .section {
@@ -47,9 +49,9 @@ a {
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.82);
-  border: 1px solid rgba(255, 255, 255, 0.65);
-  box-shadow: var(--shadow);
+  background: var(--color-bg-glass);
+  border: 1px solid var(--border-color-light);
+  box-shadow: var(--shadow-main);
   backdrop-filter: blur(12px);
 }
 
@@ -108,7 +110,7 @@ a {
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px);
   }
 
   to {
@@ -151,4 +153,53 @@ a {
 
 .animate-scale-slow {
   animation: scaleSlow 20s linear infinite alternate;
+}
+
+@keyframes shine {
+  from {
+    transform: translateX(-120%);
+  }
+
+  to {
+    transform: translateX(120%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 22s linear infinite;
+  will-change: transform;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-35%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-marquee {
+    animation: none;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-20px);
+  }
+
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
 }
