@@ -105,33 +105,33 @@ export default function Process() {
   return (
     <section
       id="jarayon"
-      className="relative overflow-hidden py-20 sm:py-24 bg-[var(--color-bg-main)]"
+      className="relative overflow-hidden py-20 sm:py-24 bg-main"
     >
       {/* rich background (cheap) */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-20 -top-24 h-[420px] w-[420px] rounded-full bg-[var(--color-sand)] opacity-80 blur-3xl" />
-        <div className="absolute -right-24 top-10 h-[520px] w-[520px] rounded-full bg-[var(--color-brand-primary)] opacity-[0.14] blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply bg-[radial-gradient(rgba(0,0,0,0.07)_1px,transparent_1px)] [background-size:18px_18px]" />
+        <div className="absolute -left-20 -top-24 h-[420px] w-[420px] rounded-full bg-sand opacity-80 blur-3xl" />
+        <div className="absolute -right-24 top-10 h-[520px] w-[520px] rounded-full bg-brand opacity-[0.14] blur-3xl" />
+        <div className="absolute inset-0 opacity-[0.18] mix-blend-multiply bg-[radial-gradient(rgba(0\,0\,0\,0.07)_1px,transparent_1px)] [background-size:18px_18px]" />
       </div>
 
       <div className="container-shell relative z-10">
         <div className="rounded-[34px] border border-black/5 bg-white/80 backdrop-blur-xl shadow-[var(--shadow-main)] overflow-hidden">
           {/* top shimmer line */}
-          <div className="relative h-1 w-full bg-[linear-gradient(90deg,rgba(176,122,71,0),rgba(176,122,71,0.9),rgba(176,122,71,0))]">
-            <div className="absolute inset-0 opacity-70 animate-[shine_2.2s_linear_infinite] bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.55),transparent)]" />
+          <div className="relative h-1 w-full bg-[linear-gradient(90deg\,rgba(176\,122\,71\,0),rgba(176\,122\,71\,0.9),rgba(176\,122\,71\,0))]">
+            <div className="absolute inset-0 opacity-70 animate-[shine_2.2s_linear_infinite] bg-[linear-gradient(110deg\,transparent\,rgba(255\,255\,255\,0.55)\,transparent)]" />
           </div>
 
           <div className="p-10 sm:p-12">
             {/* header */}
             <div className="flex flex-wrap items-end justify-between gap-6">
               <div>
-                <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
+                <p className="text-xs uppercase tracking-widest text-dim">
                   Jarayon
                 </p>
-                <h2 className="display-font mt-4 text-3xl font-semibold sm:text-4xl md:text-5xl leading-tight text-[var(--color-text-main)]">
+                <h2 className="display-font mt-4 text-3xl font-semibold sm:text-4xl md:text-5xl leading-tight text-main">
                   Dizayndan qurilishgacha bo&apos;lgan nazorat
                 </h2>
-                <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-[var(--color-text-muted)]">
+                <p className="mt-4 max-w-2xl text-sm sm:text-base leading-relaxed text-muted">
                   Har bir bosqichda sifat, me&apos;yor va muddat nazorat qilinadi — natija “chiroyli render”
                   emas, real topshiriladigan obyekt bo‘ladi.
                 </p>
@@ -148,7 +148,7 @@ export default function Process() {
             {/* connector line (desktop) */}
             <div className="relative mt-10 hidden lg:block">
               <div className="absolute left-0 right-0 top-7 h-px bg-black/10" />
-              <div className="absolute left-0 right-0 top-7 h-px bg-[linear-gradient(90deg,rgba(176,122,71,0),rgba(176,122,71,0.55),rgba(176,122,71,0))]" />
+              <div className="absolute left-0 right-0 top-7 h-px bg-[linear-gradient(90deg\,rgba(176\,122\,71\,0),rgba(176\,122\,71\,0.55),rgba(176\,122\,71\,0))]" />
             </div>
 
             {/* steps */}
@@ -157,7 +157,7 @@ export default function Process() {
                 <div
                   key={step.title}
                   className="group relative rounded-[28px] border border-black/5 bg-white/70 backdrop-blur
-                             p-7 shadow-[0_14px_40px_-30px_rgba(17,17,17,0.55)]
+                             p-7 shadow-[0_14px_40px_-30px_rgba(17\,17\,17\,0.55)]
                              transition-all duration-300 hover:-translate-y-1 hover:bg-white"
                 >
                   {/* accent corner */}
@@ -215,7 +215,7 @@ export default function Process() {
             </div>
 
             {/* bottom summary strip */}
-            <div className="mt-10 rounded-[28px] border border-black/5 bg-white/70 backdrop-blur p-7 shadow-[0_14px_40px_-30px_rgba(17,17,17,0.55)]">
+            <div className="mt-10 rounded-[28px] border border-black/5 bg-white/70 backdrop-blur p-7 shadow-[0_14px_40px_-30px_rgba(17\,17\,17\,0.55)]">
               <div className="flex flex-wrap items-center justify-between gap-6">
                 <div>
                   <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-muted)]">

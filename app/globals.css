@@ -13,10 +13,134 @@
   --stone: var(--color-stone);
   --shadow: var(--shadow-main);
 
-  /* Tailwind/Framework mappings */
   --color-background: var(--color-bg-main);
   --color-foreground: var(--color-text-main);
   --font-sans: var(--font-family-body);
+}
+
+/* 🎨 Theme Utility Classes for Tailwind 4 Reliability */
+.text-main {
+  color: var(--color-text-main);
+}
+
+.text-muted {
+  color: var(--color-text-muted);
+}
+
+.text-dim {
+  color: var(--color-muted);
+}
+
+.text-brand {
+  color: var(--color-brand-primary);
+}
+
+.text-brand-dark {
+  color: var(--color-brand-dark);
+}
+
+.bg-main {
+  background-color: var(--color-bg-main);
+}
+
+.bg-brand {
+  background-color: var(--color-brand-primary);
+}
+
+.bg-sand {
+  background-color: var(--color-sand);
+}
+
+.dot-grid {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.07) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+.featured-bar {
+  background: linear-gradient(90deg,
+      rgba(176, 122, 71, 0),
+      rgba(176, 122, 71, 0.9),
+      rgba(176, 122, 71, 0));
+  opacity: 0.95;
+}
+
+/* 🚀 Hero Section Styles Moved from Hero.tsx */
+.hero-vignette {
+  background: radial-gradient(circle at center,
+      rgba(0, 0, 0, 0) 0%,
+      rgba(247, 244, 239, 1) 72%);
+}
+
+.hero-marquee {
+  display: flex;
+  gap: 2rem;
+  width: max-content;
+  animation: marquee 40s linear infinite;
+  will-change: transform;
+}
+
+.hero-marquee-reverse {
+  animation-direction: reverse;
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-33.333%);
+  }
+}
+
+.hero-float {
+  animation: float 7s ease-in-out infinite;
+  will-change: transform;
+}
+
+.hero-float-slow {
+  animation: float 9s ease-in-out infinite;
+  will-change: transform;
+}
+
+@keyframes float {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
+.hero-pulse {
+  animation: pulse 2.2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+
+  0%,
+  100% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .hero-marquee,
+  .hero-float,
+  .hero-float-slow,
+  .hero-pulse {
+    animation: none !important;
+  }
 }
 
 body {

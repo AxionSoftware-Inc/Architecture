@@ -52,7 +52,7 @@ export default function Nav() {
       {/* top hairline */}
       <div className="absolute inset-x-0 top-0 h-px bg-black/5" />
       {/* bottom soft divider */}
-      <div className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg,transparent,rgba(0,0,0,0.12),transparent)]" />
+      <div className="absolute inset-x-0 bottom-0 h-px bg-[linear-gradient(90deg\,transparent\,rgba(0\,0\,0\,0.12)\,transparent)]" />
 
       <nav
         className="container-shell relative flex items-center justify-between py-5 sm:py-6"
@@ -68,14 +68,14 @@ export default function Nav() {
               loading="eager"
             />
             {/* accent dot */}
-            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-[color:var(--color-brand-primary)] shadow-sm" />
+            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-brand shadow-sm" />
           </div>
 
           <div className="leading-tight">
-            <p className="text-[10px] uppercase tracking-[0.38em] text-[color:var(--color-muted)]">
+            <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
               architecture & development
             </p>
-            <p className="display-font text-lg font-semibold text-[color:var(--color-text-main)]">
+            <p className="display-font text-lg font-semibold text-[var(--color-text-main)]">
               Apex Architecture
             </p>
           </div>
@@ -88,12 +88,12 @@ export default function Nav() {
               key={link.href}
               href={link.href}
               onClick={onNavClick(link.href)}
-              className="group relative text-[11px] font-semibold uppercase tracking-[0.28em] text-[color:var(--color-text-main)]"
+              className="group relative text-[11px] font-semibold uppercase tracking-[0.28em] text-[var(--color-text-main)]"
             >
-              <span className="relative z-10 transition-colors group-hover:text-[color:var(--color-brand-dark)]">
+              <span className="relative z-10 transition-colors group-hover:text-[var(--color-brand-dark)]">
                 {link.label}
               </span>
-              <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-[color:var(--color-brand-primary)] transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-2 left-1/2 h-px w-0 -translate-x-1/2 bg-[var(--color-brand-primary)] transition-all duration-300 group-hover:w-full" />
             </a>
           ))}
         </div>
@@ -108,15 +108,15 @@ export default function Nav() {
             href="#aloqa"
             onClick={onNavClick("#aloqa")}
             className="group relative overflow-hidden rounded-full
-                       bg-[color:var(--color-brand-primary)]
-                       px-5 py-3 sm:px-6
-                       text-[10px] sm:text-[11px] font-bold uppercase tracking-[0.28em] text-white
-                       shadow-[0_10px_30px_-18px_rgba(17,17,17,0.45)]
+                        bg-brand
+                        px-5 py-3 sm:px-6
+                        text-xs font-bold uppercase tracking-widest text-white
+                        shadow-lg
                        transition-all duration-300
                        hover:-translate-y-0.5 hover:brightness-[1.05]"
           >
             <span className="relative z-10">Konsultatsiya</span>
-            <span className="pointer-events-none absolute inset-0 translate-x-[-120%] bg-[linear-gradient(110deg,transparent,rgba(255,255,255,0.45),transparent)] transition-transform duration-700 group-hover:translate-x-[120%]" />
+            <span className="pointer-events-none absolute inset-0 -translate-x-full bg-white/20 transition-transform duration-700 group-hover:translate-x-full" />
           </a>
 
           {/* Mobile menu button */}
@@ -132,19 +132,19 @@ export default function Nav() {
             <span className="relative h-4 w-5">
               <span
                 className={[
-                  "absolute left-0 top-0 h-[2px] w-full bg-[color:var(--color-text-main)] transition-transform duration-300",
+                  "absolute left-0 top-0 h-[2px] w-full bg-[var(--color-text-main)] transition-transform duration-300",
                   open ? "translate-y-[7px] rotate-45" : "",
                 ].join(" ")}
               />
               <span
                 className={[
-                  "absolute left-0 top-[7px] h-[2px] w-full bg-[color:var(--color-text-main)] transition-opacity duration-200",
+                  "absolute left-0 top-[7px] h-[2px] w-full bg-[var(--color-text-main)] transition-opacity duration-200",
                   open ? "opacity-0" : "opacity-100",
                 ].join(" ")}
               />
               <span
                 className={[
-                  "absolute left-0 top-[14px] h-[2px] w-full bg-[color:var(--color-text-main)] transition-transform duration-300",
+                  "absolute left-0 top-[14px] h-[2px] w-full bg-[var(--color-text-main)] transition-transform duration-300",
                   open ? "translate-y-[-7px] -rotate-45" : "",
                 ].join(" ")}
               />
@@ -164,9 +164,9 @@ export default function Nav() {
             />
 
             <div className="lg:hidden fixed left-1/2 top-[72px] z-50 w-[min(92vw,520px)] -translate-x-1/2 overflow-hidden rounded-[28px]
-                            border border-black/10 bg-white/90 backdrop-blur-xl shadow-[0_30px_80px_-55px_rgba(17,17,17,0.75)]">
+                            border border-black/10 bg-white/90 backdrop-blur-xl shadow-xl">
               <div className="p-5">
-                <p className="text-[10px] uppercase tracking-[0.34em] text-[color:var(--color-muted)]">
+                <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-muted)]">
                   Menu
                 </p>
 
@@ -177,22 +177,22 @@ export default function Nav() {
                       href={link.href}
                       onClick={onNavClick(link.href)}
                       className="group flex items-center justify-between rounded-2xl border border-black/5 bg-white/70 px-4 py-4
-                                 text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--color-text-main)]
-                                 transition hover:bg-white"
+                                  text-xs font-bold uppercase tracking-widest text-main
+                                  transition hover:bg-white"
                     >
                       <span>{link.label}</span>
-                      <span className="text-[color:var(--color-brand-dark)] transition-transform group-hover:translate-x-1">
+                      <span className="text-[var(--color-brand-dark)] transition-transform group-hover:translate-x-1">
                         →
                       </span>
                     </a>
                   ))}
                 </div>
 
-                <div className="mt-4 rounded-2xl border border-black/5 bg-[color:var(--color-sand)] p-4">
-                  <p className="text-[10px] uppercase tracking-[0.28em] text-[color:var(--color-brand-dark)] font-bold">
+                <div className="mt-4 rounded-2xl border border-black/5 bg-[var(--color-sand)] p-4">
+                  <p className="text-[10px] uppercase tracking-[0.28em] text-[var(--color-brand-dark)] font-bold">
                     Premium konsultatsiya
                   </p>
-                  <p className="mt-2 text-sm text-[color:var(--color-text-muted)]">
+                  <p className="mt-2 text-sm text-[var(--color-text-muted)]">
                     Loyiha, smeta va muddat bo‘yicha tezkor javob.
                   </p>
                 </div>

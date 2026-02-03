@@ -49,25 +49,25 @@ const services = [
 
 export default function Services() {
   return (
-    <section id="xizmatlar" className="relative py-24 bg-[var(--color-bg-main)]">
+    <section id="xizmatlar" className="relative py-24 bg-main">
       {/* Background Decor */}
       <div className="pointer-events-none absolute inset-0 overflow-hidden">
-        <div className="absolute -left-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-[var(--color-sand)] opacity-40 blur-[100px]" />
-        <div className="absolute -right-[10%] bottom-[20%] h-[500px] w-[500px] rounded-full bg-[var(--color-brand-primary)] opacity-10 blur-[120px]" />
+        <div className="absolute -left-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-sand opacity-40 blur-[100px]" />
+        <div className="absolute -right-[10%] bottom-[20%] h-[500px] w-[500px] rounded-full bg-brand opacity-10 blur-[120px]" />
       </div>
 
       <div className="container-shell relative z-10">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-8 mb-16">
           <div className="max-w-2xl">
-            <span className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)] font-bold">
+            <span className="text-xs uppercase tracking-widest text-dim font-bold">
               Ekspertiza
             </span>
-            <h2 className="display-font mt-4 text-4xl sm:text-5xl lg:text-6xl leading-tight text-[var(--color-text-main)]">
+            <h2 className="display-font mt-4 text-4xl sm:text-5xl lg:text-6xl leading-tight text-main">
               Bizning yondashuv — <br />
-              <span className="text-[var(--color-brand-primary)]">kompleks yechimlar</span>
+              <span className="text-brand">kompleks yechimlar</span>
             </h2>
-            <p className="mt-6 text-base text-[var(--color-text-muted)] max-w-lg leading-relaxed">
+            <p className="mt-6 text-base text-muted max-w-lg leading-relaxed">
               Arxitektura faqat chiroyli fasad emas. Bu — funksiya, iqtisod va estetikaning mukammal balansi.
             </p>
           </div>
@@ -75,8 +75,8 @@ export default function Services() {
           <a
             href="#aloqa"
             className="group inline-flex items-center gap-2 rounded-full border border-black/10 bg-white
-                       px-8 py-4 text-[11px] font-bold uppercase tracking-[0.24em] text-[var(--color-text-main)]
-                       transition-all hover:bg-[var(--color-brand-primary)] hover:text-white hover:border-transparent hover:shadow-lg"
+                       px-8 py-4 text-xs font-bold uppercase tracking-widest text-main
+                       transition-all hover:bg-brand hover:text-white hover:border-transparent hover:shadow-lg"
           >
             Konsultatsiya olish
             <span className="transition-transform group-hover:translate-x-1">→</span>
@@ -125,7 +125,7 @@ export default function Services() {
                         key={bullet}
                         className="inline-flex items-center gap-1.5 rounded-full bg-white/10 px-3 py-1.5 text-[10px] uppercase tracking-wider backdrop-blur-sm"
                       >
-                        <span className="h-1 w-1 rounded-full bg-[var(--color-sand)]" />
+                        <span className="h-1 w-1 rounded-full bg-sand" />
                         {bullet}
                       </span>
                     ))}

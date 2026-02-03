@@ -33,22 +33,22 @@ export default function Projects() {
   return (
     <section id="loyihalar" className="section relative">
       {/* Background decorative elements */}
-      <div className="absolute top-20 left-0 w-64 h-64 bg-[color:var(--sand)] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
-      <div className="absolute bottom-20 right-0 w-64 h-64 bg-[color:var(--accent)] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: "2s" }}></div>
+      <div className="absolute top-20 left-0 w-64 h-64 bg-[var(--sand)] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float"></div>
+      <div className="absolute bottom-20 right-0 w-64 h-64 bg-[var(--accent)] rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-float" style={{ animationDelay: "2s" }}></div>
 
       <div className="container-shell relative z-10">
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
-            <p className="text-xs uppercase tracking-[0.35em] text-[color:var(--muted)]">
+            <p className="text-xs uppercase tracking-[0.35em] text-[var(--muted)]">
               Portfel
             </p>
             <h2 className="display-font mt-4 text-4xl font-semibold sm:text-5xl">
-              Arxitektura <span className="text-[color:var(--accent)]">San&apos;ati</span>
+              Arxitektura <span className="text-[var(--accent)]">San&apos;ati</span>
             </h2>
           </div>
           <a
             href="#aloqa"
-            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[color:var(--accent-strong)] transition-all hover:gap-3"
+            className="group flex items-center gap-2 text-xs font-bold uppercase tracking-[0.3em] text-[var(--accent-strong)] transition-all hover:gap-3"
           >
             Barchasini ko&apos;rish <span className="transition-transform group-hover:translate-x-1">-&gt;</span>
           </a>

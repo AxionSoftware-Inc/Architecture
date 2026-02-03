@@ -26,7 +26,6 @@ function Row({
   return (
     <div
       className={`hero-marquee ${reverse ? "hero-marquee-reverse" : ""}`}
-      style={{ ["--duration" as any]: "42s" }}
       aria-hidden="true"
     >
       {list.map((src, i) => (
@@ -53,7 +52,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative flex min-h-screen items-center overflow-hidden bg-[color:var(--color-bg-main)] pt-20">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-main pt-20">
       {/* Layer 1: Scrolling Background */}
       <div className="absolute inset-0 z-0 flex flex-col justify-center gap-8 opacity-20 md:opacity-30">
         <div className="-rotate-3 scale-110 transform">
@@ -65,12 +64,12 @@ export default function Hero() {
 
       {/* Layer 2: overlays (readability) */}
       <div className="absolute inset-0 z-10 hero-vignette" />
-      <div className="absolute inset-0 z-10 bg-gradient-to-t from-[color:var(--color-bg-main)] via-transparent to-[color:var(--color-bg-main)]" />
+      <div className="absolute inset-0 z-10 bg-gradient-to-t from-main via-transparent to-main" />
 
       {/* Layer 3: floating decor */}
       <div className="pointer-events-none absolute inset-0 z-10 overflow-hidden">
-        <div className="hero-float absolute -left-[10%] top-[18%] h-[520px] w-[520px] rounded-full bg-[color:var(--color-sand)] opacity-40 blur-[120px]" />
-        <div className="absolute -right-[12%] bottom-[8%] h-[620px] w-[620px] rounded-full bg-[color:var(--color-brand-primary)] opacity-10 blur-[130px]" />
+        <div className="hero-float absolute -left-[10%] top-[18%] h-[520px] w-[520px] rounded-full bg-sand opacity-40 blur-[120px]" />
+        <div className="absolute -right-[12%] bottom-[8%] h-[620px] w-[620px] rounded-full bg-brand opacity-10 blur-[130px]" />
       </div>
 
       {/* Layer 4: main content */}
@@ -84,18 +83,18 @@ export default function Hero() {
             ].join(" ")}
           >
             <div className="inline-flex items-center gap-3 rounded-full border border-black/5 bg-white/50 px-4 py-2 backdrop-blur-md">
-              <span className="h-2 w-2 rounded-full bg-[color:var(--color-brand-primary)] hero-pulse" />
-              <span className="text-[10px] uppercase tracking-[0.25em] font-bold text-[color:var(--color-brand-dark)]">
+              <span className="h-2 w-2 rounded-full bg-brand hero-pulse" />
+              <span className="text-xs uppercase tracking-widest font-bold text-brand-dark">
                 Premium Qurilish
               </span>
             </div>
 
-            <h1 className="display-font mt-8 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.05] text-[color:var(--color-text-main)]">
+            <h1 className="display-font mt-8 text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-medium leading-[1.05] text-main">
               Kelajak <br />
               <span className="relative inline-block">
                 arxitekturasi
                 <svg
-                  className="absolute -bottom-2 left-0 w-full text-[color:var(--color-brand-primary)] opacity-60"
+                  className="absolute -bottom-2 left-0 w-full text-brand opacity-60"
                   viewBox="0 0 300 12"
                   fill="none"
                   aria-hidden="true"
@@ -110,7 +109,7 @@ export default function Hero() {
               </span>
             </h1>
 
-            <p className="mt-8 max-w-xl text-lg text-[color:var(--color-text-muted)] leading-relaxed">
+            <p className="mt-8 max-w-xl text-lg text-muted leading-relaxed">
               Biz shunchaki bino qurmaymiz — biz hayot tarzini shakllantiramiz.
               Innovatsion muhandislik va estetik mukammallik uyg‘unligi.
             </p>
@@ -118,8 +117,8 @@ export default function Hero() {
             <div className="mt-10 flex flex-wrap gap-4">
               <a
                 href="#loyihalar"
-                className="group relative overflow-hidden rounded-full bg-[color:var(--color-brand-primary)] px-10 py-5
-                           text-xs font-bold uppercase tracking-[0.25em] text-white shadow-[0_16px_44px_-28px_rgba(17,17,17,0.55)]
+                className="group relative overflow-hidden rounded-full bg-brand px-10 py-5
+                           text-xs font-bold uppercase tracking-widest text-white shadow-lg
                            transition-transform hover:-translate-y-1"
               >
                 <span className="relative z-10">Loyihalar</span>
@@ -128,8 +127,8 @@ export default function Hero() {
 
               <a
                 href="#aloqa"
-                className="group rounded-full border border-black/10 bg-white/60 px-10 py-5 text-xs font-bold uppercase tracking-[0.25em]
-                           text-[color:var(--color-text-main)] backdrop-blur-sm transition-all hover:bg-white hover:shadow-md"
+                className="group rounded-full border border-black/10 bg-white/60 px-10 py-5 text-xs font-bold uppercase tracking-widest
+                           text-main backdrop-blur-sm transition-all hover:bg-white hover:shadow-md"
               >
                 Bog‘lanish
               </a>
@@ -138,26 +137,26 @@ export default function Hero() {
             {/* Stats */}
             <div className="mt-16 grid grid-cols-3 gap-8 border-t border-black/5 pt-8">
               <div>
-                <p className="display-font text-3xl font-semibold text-[color:var(--color-text-main)]">
+                <p className="display-font text-3xl font-semibold text-main">
                   18+
                 </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-muted)]">
+                <p className="mt-1 text-xs uppercase tracking-widest text-dim">
                   Yil tajriba
                 </p>
               </div>
               <div>
-                <p className="display-font text-3xl font-semibold text-[color:var(--color-text-main)]">
+                <p className="display-font text-3xl font-semibold text-main">
                   68
                 </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-muted)]">
+                <p className="mt-1 text-xs uppercase tracking-widest text-dim">
                   Loyiha
                 </p>
               </div>
               <div>
-                <p className="display-font text-3xl font-semibold text-[color:var(--color-text-main)]">
+                <p className="display-font text-3xl font-semibold text-main">
                   240k
                 </p>
-                <p className="mt-1 text-[10px] uppercase tracking-[0.32em] text-[color:var(--color-muted)]">
+                <p className="mt-1 text-xs uppercase tracking-widest text-dim">
                   m² bitgan
                 </p>
               </div>
@@ -166,7 +165,7 @@ export default function Hero() {
 
           {/* Right card */}
           <div className="hidden lg:block relative">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[color:var(--color-brand-primary)] to-transparent opacity-20 blur-[90px] rounded-full" />
+            <div className="absolute inset-0 bg-gradient-to-tr from-brand to-transparent opacity-20 blur-[90px] rounded-full" />
 
             <div className="relative rounded-[40px] border border-black/5 bg-white/70 backdrop-blur-xl p-8
                             shadow-[var(--shadow-main)] transition-transform hover:scale-[1.02] duration-500 hero-float-slow">
@@ -178,7 +177,7 @@ export default function Hero() {
                   loading="lazy"
                 />
                 <div className="absolute top-6 right-6">
-                  <span className="backdrop-blur-md bg-black/30 text-white px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-[0.30em] border border-white/20">
+                  <span className="backdrop-blur-md bg-black/30 text-white px-4 py-2 rounded-full text-xs font-bold uppercase tracking-widest border border-white/20">
                     Top Loyiha
                   </span>
                 </div>
@@ -192,83 +191,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-        {/* Local CSS: animations guaranteed */}
-        <style jsx>{`
-          .hero-vignette {
-            background: radial-gradient(
-              circle at center,
-              rgba(0, 0, 0, 0) 0%,
-              rgba(247, 244, 239, 1) 72%
-            );
-          }
-
-          .hero-marquee {
-            display: flex;
-            gap: 2rem;
-            width: max-content;
-            animation: marquee var(--duration, 40s) linear infinite;
-            will-change: transform;
-          }
-
-          .hero-marquee-reverse {
-            animation-direction: reverse;
-          }
-
-          @keyframes marquee {
-            from {
-              transform: translateX(0);
-            }
-            to {
-              transform: translateX(-33.333%);
-            }
-          }
-
-          .hero-float {
-            animation: float 7s ease-in-out infinite;
-            will-change: transform;
-          }
-
-          .hero-float-slow {
-            animation: float 9s ease-in-out infinite;
-            will-change: transform;
-          }
-
-          @keyframes float {
-            0%,
-            100% {
-              transform: translateY(0);
-            }
-            50% {
-              transform: translateY(-14px);
-            }
-          }
-
-          .hero-pulse {
-            animation: pulse 2.2s ease-in-out infinite;
-          }
-
-          @keyframes pulse {
-            0%,
-            100% {
-              opacity: 0.7;
-              transform: scale(1);
-            }
-            50% {
-              opacity: 1;
-              transform: scale(1.15);
-            }
-          }
-
-          @media (prefers-reduced-motion: reduce) {
-            .hero-marquee,
-            .hero-float,
-            .hero-float-slow,
-            .hero-pulse {
-              animation: none !important;
-            }
-          }
-        `}</style>
       </div>
     </section>
   );
