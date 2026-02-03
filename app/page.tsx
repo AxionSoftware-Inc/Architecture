@@ -10,6 +10,8 @@ import Showcase from "./components/Showcase";
 import Stats from "./components/Stats";
 import Testimonials from "./components/Testimonials";
 
+export const revalidate = 3600; // 1 soatda bir yangilanadi (ISR)
+
 export default function Home() {
   return (
     <div className="relative overflow-hidden">
