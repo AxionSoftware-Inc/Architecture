@@ -72,9 +72,9 @@ export default function Nav() {
           </div>
 
           <div className="leading-tight">
-            <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
+            {/* <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
               architecture & development
-            </p>
+            </p> */}
             <p className="display-font text-lg font-semibold text-[var(--color-text-main)]">
               Apex Architecture
             </p>
