@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // output: "export", // ISR uchun buni olib tashladik (SSG/ISR rejimida ishlaydi)
+  output: "export", // Buni yoqing!
   images: {
     unoptimized: true,
   },
