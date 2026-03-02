@@ -1,6 +1,6 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+
 
 import { useEffect, useMemo, useState } from "react";
 
@@ -59,24 +59,21 @@ export default function Nav() {
         aria-label="Primary navigation"
       >
         {/* ===== LEFT: LOGO ===== */}
-        <a href="#" className="flex items-center gap-4">
-          <div className="relative flex h-12 w-12 items-center justify-center rounded-full border border-black/10 bg-white shadow-sm overflow-hidden">
-            <img
-              src="/faxr.png"
-              alt="Company logo"
-              className="h-full w-full object-cover"
-              loading="eager"
-            />
-            {/* accent dot */}
-            <span className="absolute -right-1 -top-1 h-2.5 w-2.5 rounded-full bg-brand shadow-sm" />
+        <a href="#" className="flex items-center gap-3 group">
+          <div className="relative flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-gray-900 to-gray-800 shadow-xl overflow-hidden transition-all duration-500 group-hover:rotate-12 group-hover:scale-110">
+            {/* Architectural SVG Logo */}
+            <svg viewBox="0 0 24 24" fill="none" className="h-6 w-6 text-amber-400" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 22h20M4 22V7l8-5 8 5v15M9 22v-4a3 3 0 016 0v4M12 2v2M7 10h2M15 10h2M7 14h2M15 14h2" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+            <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
           </div>
 
-          <div className="leading-tight">
-            {/* <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
-              architecture & development
-            </p> */}
-            <p className="display-font text-lg font-semibold text-[var(--color-text-main)]">
-              Apex Architecture
+          <div className="leading-none">
+            <p className="display-font text-xl font-bold tracking-tight text-gray-900">
+              APEX<span className="text-amber-500">.</span>
+            </p>
+            <p className="text-[9px] font-bold uppercase tracking-[0.3em] text-gray-400">
+              Architecture
             </p>
           </div>
         </a>

@@ -4,12 +4,12 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import Image from "next/image";
 
 const heroImages = [
-  "/hero/1.jpg", // 600x400 formatda rasmlarni joylang
-  "/hero/2.jpg",
-  "/hero/3.jpg",
-  "/hero/4.jpg",
-  "/hero/5.jpg",
-  "/hero/6.jpg",
+  "/hero/1.png",
+  "/hero/2.png",
+  "/hero/3.png",
+  "/hero/4.png",
+  "/hero/5.png",
+  "/hero/6.png",
 ];
 
 function Row({
@@ -37,7 +37,7 @@ function Row({
         >
           <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent 
                         z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          
+
           <div className="relative h-full w-full">
             <Image
               src={src}
@@ -49,7 +49,7 @@ function Row({
               priority={i < 2}
             />
           </div>
-          
+
           {/* Hover efekti uchun overlay */}
           <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-500 z-10" />
         </div>
@@ -65,7 +65,7 @@ export default function Hero() {
 
   useEffect(() => {
     const t = setTimeout(() => setMounted(true), 40);
-    
+
     // Background slider uchun interval
     const interval = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % heroImages.length);
@@ -78,7 +78,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section 
+    <section
       ref={heroRef}
       className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900"
     >
@@ -93,9 +93,8 @@ export default function Hero() {
         {heroImages.map((src, index) => (
           <div
             key={src}
-            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
-              index === activeIndex ? "opacity-100" : "opacity-0"
-            }`}
+            className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === activeIndex ? "opacity-100" : "opacity-0"
+              }`}
           >
             <Image
               src={src}
@@ -114,7 +113,7 @@ export default function Hero() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute -top-40 -left-40 w-80 h-80 border border-white/5 rounded-full animate-spin-slow" />
         <div className="absolute -bottom-40 -right-40 w-96 h-96 border border-white/5 rounded-full animate-spin-slow-reverse" />
-        
+
         {/* Grid pattern */}
         <div className="absolute inset-0 opacity-[0.02]">
           <div className="h-full w-full bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:50px_50px]" />
@@ -145,9 +144,8 @@ export default function Hero() {
       <div className="container mx-auto px-4 relative z-20 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-12 items-center w-full">
           {/* Left side - Text content */}
-          <div className={`transition-all duration-1000 ${
-            mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
-          }`}>
+          <div className={`transition-all duration-1000 ${mounted ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+            }`}>
             {/* Badge */}
             <div className="inline-flex items-center gap-3 rounded-full bg-gradient-to-r from-amber-500/20 to-blue-500/20 
                           px-5 py-3 backdrop-blur-sm border border-white/10 mb-8">
@@ -169,7 +167,7 @@ export default function Hero() {
 
             {/* Subtitle */}
             <p className="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed">
-              Innovatsion goyalar, zamonaviy texnologiyalar va mukammal dizayn 
+              Innovatsion goyalar, zamonaviy texnologiyalar va mukammal dizayn
               uygunligi. Har bir loyiha - bu yangi standart.
             </p>
 
@@ -197,7 +195,7 @@ export default function Hero() {
                 { value: "68", label: "MUVAFFAQIYATLI LOYIHALAR" },
                 { value: "100%", label: "QONIQISH KAFOLATI" },
               ].map((stat, index) => (
-                <div 
+                <div
                   key={index}
                   className={`opacity-0 animate-fade-up`}
                   style={{ animationDelay: `${index * 200}ms`, animationFillMode: 'forwards' }}
@@ -222,21 +220,21 @@ export default function Hero() {
               {/* Glass morphism effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-xl 
                             border border-white/20" />
-              
+
               {/* Main image */}
               <div className="relative h-[500px] overflow-hidden">
                 <Image
-                  src="/hero/featured.jpg"
+                  src="/hero/1.png"
                   alt="Skyline Center - Premium biznes markaz"
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                   quality={85}
                   priority
                 />
-                
+
                 {/* Gradient overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
-                
+
                 {/* Badge */}
                 <div className="absolute top-6 right-6">
                   <span className="inline-flex items-center gap-2 bg-black/60 backdrop-blur-md 
@@ -247,7 +245,7 @@ export default function Hero() {
                     </span>
                   </span>
                 </div>
-                
+
                 {/* Content */}
                 <div className="absolute bottom-0 left-0 right-0 p-8">
                   <h3 className="text-3xl font-bold text-white mb-2">
@@ -256,7 +254,7 @@ export default function Hero() {
                   <p className="text-gray-300 mb-6">
                     Innovatsion biznes markaz - Toshkentning yangi ramzi
                   </p>
-                  
+
                   <div className="flex gap-4">
                     <span className="text-sm bg-white/20 backdrop-blur-sm text-white 
                                    px-4 py-2 rounded-full">
@@ -269,7 +267,7 @@ export default function Hero() {
                   </div>
                 </div>
               </div>
-              
+
               {/* Floating elements on card */}
               <div className="absolute -top-4 -right-4 w-8 h-8 rounded-full bg-gradient-to-r from-amber-400 to-blue-400 
                             animate-ping opacity-20" />

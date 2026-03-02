@@ -84,9 +84,14 @@ export default function Offices() {
     [active]
   );
 
-  // Placeholder image (keyin o'zing almashtirasan)
-  const heroImg =
-    "https://www.prefabrikevler.com.tr/media/page/ofis-yapilari-122748.jpg";
+  // Varied office images
+  const officeImages: Record<string, string> = {
+    "Toshkent": "/hero/4.png",
+    "Samarqand": "/hero/5.png",
+    "Buxoro": "/hero/6.png",
+  };
+
+  const heroImg = officeImages[active] || "/hero/4.png";
 
   return (
     <section id="ofis" className="relative py-20 sm:py-24 bg-main overflow-hidden">

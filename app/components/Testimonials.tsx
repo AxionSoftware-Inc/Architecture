@@ -16,8 +16,7 @@ type Testimonial = {
   image: string;
 };
 
-const AVATAR =
-  "https://www.prefabrikevler.com.tr/media/page/ofis-yapilari-122748.jpg";
+
 
 const items: Testimonial[] = [
   {
@@ -30,7 +29,7 @@ const items: Testimonial[] = [
       "Eng yoqqani — jarayon ochiq: material, smeta, muddat hammasi nazoratda. Yakunda tayyor obyekt aynan renderdagi kabi chiqdi.",
     project: "Skyline Business Centre",
     year: "2026",
-    image: AVATAR,
+    image: "/hero/1.png",
   },
   {
     name: "Nodira A.",
@@ -42,7 +41,7 @@ const items: Testimonial[] = [
       "Reja mantiqi va yorug‘lik ssenariysi juda puxta. Uchrashuvlar tartibli, har haftalik hisobot bor — shu professional daraja.",
     project: "Aurora Residence",
     year: "2027",
-    image: AVATAR,
+    image: "/hero/2.png",
   },
   {
     name: "Jahongir S.",
@@ -54,7 +53,7 @@ const items: Testimonial[] = [
       "Mualliflik nazorati kuchli bo‘ldi. Mayda detallarni ham ‘o‘tib ketmaydi’. Servis bilan ishlash yengil.",
     project: "Zenith Plaza",
     year: "2025",
-    image: AVATAR,
+    image: "/hero/3.png",
   },
   {
     name: "Madina K.",
@@ -66,7 +65,7 @@ const items: Testimonial[] = [
       "Material tanlashda showroom juda yordam berdi. Tugunlar va chizmalar aniq bo‘lgani uchun ustalar ham tez ishladi.",
     project: "StonePark квартал",
     year: "2024",
-    image: AVATAR,
+    image: "/hero/4.png",
   },
 ];
 

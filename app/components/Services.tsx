@@ -1,47 +1,47 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
+import Image from "next/image";
 
 const services = [
   {
     title: "Arxitektura",
     desc: "Shahar muhiti va inson ehtiyojlarini birlashtiruvchi mukammal yechimlar.",
-    image: "https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/1.png",
     bullets: ["Masterplan", "Konsept", "Fasad"],
     tag: "Design",
   },
   {
     title: "Interyer Dizayn",
     desc: "Ergonomika va estetika uyg‘unligida yashash sifatini oshiruvchi makonlar.",
-    image: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/2.png",
     bullets: ["Living", "Office", "Retail"],
     tag: "Interior",
   },
   {
     title: "BIM & Hujjatlar",
     desc: "Qurilish jarayonini aniq rejalashtirish uchun raqamli egizak va chizmalar.",
-    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/3.png",
     bullets: ["Revit", "Smeta", "Muhandislik"],
     tag: "Technical",
   },
   {
     title: "Qurilish Nazorati",
     desc: "Loyiha qog‘ozdan hayotga ko‘chayotganda sifat va muddat kafolati.",
-    image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/4.png",
     bullets: ["Audit", "Texnik nazorat", "Monitoring"],
     tag: "Supervision",
   },
   {
     title: "Landidshaft",
     desc: "Binoni o‘rab turgan muhit — tabiat va arxitektura dialogi.",
-    image: "https://images.unsplash.com/photo-1590486803833-1c5dc8ddd4c8?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/5.png",
     bullets: ["Jamoat zonalari", "Yashil hudud", "Yoritish"],
     tag: "Environment",
   },
   {
     title: "Turnkey",
     desc: "G‘oyadan kalitgacha — barcha jarayonlarni yagona pudratchi sifatida boshqarish.",
-    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=800",
+    image: "/hero/6.png",
     bullets: ["Boshqaruv", "Xaridlar", "Logistika"],
     tag: "Management",
   },
@@ -92,9 +92,10 @@ export default function Services() {
             >
               {/* Image Background */}
               <div className="absolute inset-0">
-                <img
+                <Image
                   src={service.image}
                   alt={service.title}
+                  fill
                   className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />

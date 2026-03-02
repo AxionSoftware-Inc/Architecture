@@ -1,8 +1,7 @@
 "use client";
 
-/* eslint-disable @next/next/no-img-element */
-
 import { useMemo, useState } from "react";
+import Image from "next/image";
 
 type Project = {
   id: string;
@@ -17,8 +16,20 @@ type Project = {
   desc: string;
 };
 
-const PLACEHOLDER =
-  "https://www.prefabrikevler.com.tr/media/page/ofis-yapilari-122748.jpg";
+// Yuqori sifatli va optimizatsiya qilingan rasmlar
+const PROJECT_IMAGES = {
+  skyline: "/hero/1.png",
+  aurora: "/hero/2.png",
+  stonepark: "/hero/3.png",
+  nexus: "/hero/4.png",
+  riverline: "/hero/5.png",
+  atlas: "/hero/6.png",
+  zenith: "/hero/1.png",
+  silk: "/hero/2.png",
+  gallery1: "/hero/3.png",
+  gallery2: "/hero/4.png",
+  gallery3: "/hero/5.png",
+};
 
 const allProjects: Project[] = [
   {
@@ -30,7 +41,7 @@ const allProjects: Project[] = [
     klass: "Business",
     type: "Business",
     area: "40 qavat • 52 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.skyline,
     desc: "Markaziy lokatsiya, premium fasad, kuchli logistika va servis infrastruktura.",
   },
   {
@@ -42,7 +53,7 @@ const allProjects: Project[] = [
     klass: "Premium",
     type: "Residential",
     area: "7 blok • 31 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.aurora,
     desc: "Sokin kvartal, material palitrasi, foydali reja va yashil hudud.",
   },
   {
@@ -54,8 +65,8 @@ const allProjects: Project[] = [
     klass: "Comfort",
     type: "Residential",
     area: "5 blok • 24 000 m²",
-    image: PLACEHOLDER,
-    desc: "Oilaviy makon: maktab, bog‘cha, servis va sport zonalari.",
+    image: PROJECT_IMAGES.stonepark,
+    desc: "Oilaviy makon: maktab, bogcha, servis va sport zonalari.",
   },
   {
     id: "nexus",
@@ -66,7 +77,7 @@ const allProjects: Project[] = [
     klass: "Premium",
     type: "Mixed",
     area: "32 qavat • 44 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.nexus,
     desc: "Mixed-use: retail + office + apartments, fasad ritmi va premium lobby.",
   },
   {
@@ -78,20 +89,20 @@ const allProjects: Project[] = [
     klass: "Business",
     type: "Residential",
     area: "9 blok • 36 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.riverline,
     desc: "Reja mantiqi, quyosh tushishi, tashqi hudud va transport qulayligi.",
   },
   {
     id: "atlas",
     title: "Atlas квартал",
-    location: "Toshkent • Mirzo Ulug‘bek",
+    location: "Toshkent • Mirzo Ulugbek",
     year: "2026",
     status: "Sotuvda",
     klass: "Comfort",
     type: "Residential",
     area: "6 blok • 28 000 m²",
-    image: PLACEHOLDER,
-    desc: "Kundalik hayot uchun: servislar, park yo‘laklari, oila uchun zonalar.",
+    image: PROJECT_IMAGES.atlas,
+    desc: "Kundalik hayot uchun: servislar, park yolaklari, oila uchun zonalar.",
   },
   {
     id: "zenith",
@@ -102,7 +113,7 @@ const allProjects: Project[] = [
     klass: "Business",
     type: "Business",
     area: "18 qavat • 21 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.zenith,
     desc: "Biznes oqimlari, parking logikasi, fasad materiallari va energiya samaradorligi.",
   },
   {
@@ -114,7 +125,7 @@ const allProjects: Project[] = [
     klass: "Premium",
     type: "Mixed",
     area: "Retail + living • 39 000 m²",
-    image: PLACEHOLDER,
+    image: PROJECT_IMAGES.silk,
     desc: "Premium retail, living, landscape — barchasi bitta konseptda.",
   },
 ];
@@ -127,13 +138,13 @@ function Pill({
   tone?: "soft" | "sand" | "brand";
 }) {
   const base =
-    "inline-flex items-center gap-2 rounded-full px-4 py-2 text-[10px] uppercase tracking-[0.26em] border backdrop-blur";
+    "inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-[10px] uppercase tracking-[0.18em] font-medium border backdrop-blur-sm sm:px-4 sm:py-2 sm:text-[11px]";
   const toneCls =
     tone === "brand"
-      ? "bg-brand text-white border-transparent shadow-lg"
+      ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-600/30 shadow-lg"
       : tone === "sand"
-        ? "bg-[var(--color-sand)] text-[var(--color-brand-dark)] border-black/5"
-        : "bg-white/70 text-[var(--color-text-main)] border-black/5";
+        ? "bg-gradient-to-r from-amber-100 to-amber-50 text-amber-900 border-amber-200"
+        : "bg-white/80 text-gray-700 border-gray-200/50";
   return <span className={`${base} ${toneCls}`}>{children}</span>;
 }
 
@@ -151,10 +162,11 @@ function Chip({
       type="button"
       onClick={onClick}
       className={[
-        "rounded-full px-5 py-3 text-[10px] uppercase tracking-[0.26em] font-bold border transition-all backdrop-blur",
+        "rounded-full px-3 py-2 text-[10px] uppercase tracking-[0.18em] font-bold border transition-all backdrop-blur-sm",
+        "sm:px-4 sm:py-3 sm:text-[11px]",
         active
-          ? "bg-[var(--color-brand-primary)] text-white border-transparent shadow-[0_12px_34px_-26px_rgba(17\,17\,17\,0.55)]"
-          : "bg-white/70 text-[var(--color-text-main)] border-black/10 hover:bg-white",
+          ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-600/30 shadow-lg shadow-blue-500/20"
+          : "bg-white/70 text-gray-700 border-gray-200 hover:bg-white hover:shadow-md",
       ].join(" ")}
     >
       {label}
@@ -167,153 +179,190 @@ function ProjectCard({ p }: { p: Project }) {
     p.status === "Sotuvda" ? "brand" : p.status === "Qurilishda" ? "sand" : "soft";
 
   return (
-    <a
-      href="#"
-      className="group relative overflow-hidden rounded-[28px] border border-black/5 bg-white/75 backdrop-blur-xl
-                 shadow-[0_18px_55px_-42px_rgba(17\,17\,17\,0.7)]
-                 transition-transform duration-300 hover:-translate-y-1 hover:bg-white"
+    <div
+      className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/80 backdrop-blur-sm
+                 shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:bg-white
+                 md:rounded-3xl"
     >
       <div className="relative aspect-[4/3] overflow-hidden">
-        <img
-          src={p.image}
+        <Image
+          src={`${p.image}`}
           alt={p.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.06]"
+          fill
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
+          sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(247,244,239,0.0),rgba(17,17,17,0.12))]" />
 
-        <div className="absolute left-4 top-4 flex flex-wrap gap-2">
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent" />
+
+        {/* Badges */}
+        <div className="absolute left-3 top-3 flex flex-wrap gap-2 sm:left-4 sm:top-4">
           <Pill tone={statusTone as never}>{p.status}</Pill>
           <Pill tone="soft">{p.klass}</Pill>
         </div>
 
-        <div className="absolute bottom-4 left-4 right-4 rounded-2xl border border-white/25 bg-white/70 backdrop-blur p-4">
-          <p className="text-xs uppercase tracking-widest text-dim">
-            {p.location} • {p.year}
-          </p>
-          <p className="display-font mt-2 text-lg font-semibold text-main">
-            {p.title}
-          </p>
-          <div className="mt-3 flex items-center justify-between gap-3">
-            <p className="text-sm text-muted">{p.area}</p>
-            <span className="text-[10px] uppercase tracking-[0.28em] font-bold text-[var(--color-brand-dark)]">
-              Ko‘rish →
-            </span>
+        {/* Content card */}
+        <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+          <div className="rounded-xl border border-white/20 bg-white/90 backdrop-blur-md p-4 shadow-xl sm:rounded-2xl sm:p-6">
+            <p className="text-xs uppercase tracking-widest text-gray-500">
+              {p.location} • {p.year}
+            </p>
+            <h3 className="mt-2 text-lg font-bold text-gray-900 line-clamp-1 sm:text-xl">
+              {p.title}
+            </h3>
+            <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-sm text-gray-600">{p.area}</p>
+              <span className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+                Korish →
+              </span>
+            </div>
           </div>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
 function Featured({ p }: { p: Project }) {
+  const statusTone =
+    p.status === "Sotuvda" ? "brand" : p.status === "Qurilishda" ? "sand" : "soft";
+
   return (
-    <a
-      href="#"
-      className="group relative overflow-hidden rounded-[34px] border border-black/5 bg-white/80 backdrop-blur-xl
-                 shadow-[var(--shadow-main)]"
-    >
-      <div className="relative aspect-[16/10] overflow-hidden">
-        <img
-          src={p.image}
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/90 backdrop-blur-sm
+                   shadow-2xl transition-all duration-700 hover:shadow-3xl md:rounded-3xl">
+
+      {/* Background pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="h-full w-full bg-[radial-gradient(circle_at_30%_20%,#3b82f6,transparent_50%)]" />
+      </div>
+
+      <div className="relative aspect-[16/9] overflow-hidden md:aspect-[16/8]">
+        <Image
+          src={`${p.image}`}
           alt={p.title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
-          loading="lazy"
+          fill
+          className="h-full w-full object-cover transition-transform duration-1000 group-hover:scale-105"
+          loading="eager"
+          sizes="100vw"
         />
 
-        {/* rich overlay (safe) */}
-        <div className="absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_20%,rgba(176\,122\,71\,0.22),transparent_55%)\,linear-gradient(180deg,rgba(247\,244\,239\,0.05),rgba(17\,17\,17\,0.22))]" />
+        {/* Dark gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-gray-900/90 via-gray-900/50 to-transparent" />
 
-        {/* badges */}
-        <div className="absolute left-6 top-6 flex flex-wrap gap-2">
-          <Pill tone="brand">{p.status}</Pill>
+        {/* Badges */}
+        <div className="absolute left-4 top-4 flex flex-wrap gap-2 sm:left-6 sm:top-6">
+          <Pill tone={statusTone as never}>{p.status}</Pill>
           <Pill tone="sand">{p.klass}</Pill>
           <Pill tone="soft">{p.type}</Pill>
         </div>
 
-        {/* content */}
-        <div className="absolute bottom-0 left-0 right-0 p-7 sm:p-9">
-          <div className="rounded-[28px] border border-white/25 bg-white/75 backdrop-blur-xl p-6 sm:p-7 shadow-[0_22px_70px_-52px_rgba(17\,17\,17\,0.75)]">
-            <p className="text-[10px] uppercase tracking-[0.32em] text-[var(--color-muted)]">
-              Featured • {p.location} • {p.year}
-            </p>
-            <h3 className="display-font mt-3 text-2xl sm:text-3xl font-semibold leading-tight text-main">
-              {p.title}
-            </h3>
-            <p className="mt-3 text-sm sm:text-base leading-relaxed text-muted max-w-[70ch]">
+        {/* Content */}
+        <div className="absolute inset-0 flex flex-col justify-end p-4 sm:p-8 md:p-12">
+          <div className="max-w-4xl">
+            <div className="mb-4">
+              <span className="text-xs font-semibold uppercase tracking-widest text-blue-300">
+                FEATURED • {p.location} • {p.year}
+              </span>
+              <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl md:text-4xl lg:text-5xl">
+                {p.title}
+              </h2>
+            </div>
+
+            <p className="mb-6 text-sm text-gray-200 sm:text-base md:text-lg md:leading-relaxed">
               {p.desc}
             </p>
 
-            <div className="mt-5 flex flex-wrap items-center gap-2">
+            <div className="mb-6 flex flex-wrap gap-2">
               <Pill tone="soft">{p.area}</Pill>
-              <Pill tone="soft">Fasad: Premium</Pill>
-              <Pill tone="soft">Lobby: Signature</Pill>
+              <Pill tone="soft">Premium Fasad</Pill>
+              <Pill tone="soft">Signature Lobby</Pill>
+              <Pill tone="soft">Smart Infrastructure</Pill>
             </div>
 
-            <div className="mt-6 flex items-center justify-between gap-4">
-              <span className="text-[10px] uppercase tracking-[0.30em] text-[var(--color-muted)]">
-                Batafsil katalog
-              </span>
-              <span className="text-[10px] uppercase tracking-[0.30em] font-bold text-[var(--color-brand-dark)]">
-                Ochish →
-              </span>
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              <p className="text-xs uppercase tracking-widest text-gray-400">
+                Batafsil katalog va planlar
+              </p>
+              <button className="group relative overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-500 
+                               px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all 
+                               hover:from-blue-700 hover:to-blue-600 hover:shadow-lg hover:shadow-blue-500/30">
+                <span className="relative z-10">Batafsil korish</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 
+                              transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+              </button>
             </div>
           </div>
         </div>
 
-        {/* shine */}
-        <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition">
-          <div className="absolute inset-0 translate-x-[-120%] bg-[linear-gradient(110deg\,transparent\,rgba(255\,255\,255\,0.35)\,transparent)] group-hover:translate-x-[120%] transition-transform duration-1000" />
+        {/* Shine effect */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute inset-0 translate-x-[-150%] bg-gradient-to-r from-transparent via-white/20 to-transparent 
+                        group-hover:translate-x-[150%] transition-transform duration-1000" />
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
-function BannerCard({
+function GalleryCard({
   title,
   meta,
-  image,
+  index,
 }: {
   title: string;
   meta: string;
-  image: string;
+  index: number;
 }) {
+  const images = [
+    PROJECT_IMAGES.gallery1,
+    PROJECT_IMAGES.gallery2,
+    PROJECT_IMAGES.gallery3,
+  ];
+
   return (
-    <a
-      href="#"
-      className="group relative overflow-hidden rounded-[28px] border border-black/5 bg-white/75 backdrop-blur-xl
-                 shadow-[0_18px_55px_-42px_rgba(17\,17\,17\,0.7)] transition-transform duration-300 hover:-translate-y-1"
-    >
-      <div className="relative aspect-[16/7] overflow-hidden">
-        <img
-          src={image}
+    <div className="group relative overflow-hidden rounded-2xl border border-gray-200 bg-white/90 backdrop-blur-sm
+                   shadow-lg transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl md:rounded-3xl">
+
+      <div className="relative aspect-[16/9] overflow-hidden md:aspect-[4/3]">
+        <Image
+          src={`${images[index]}`}
           alt={title}
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-[1.05]"
+          fill
+          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
           loading="lazy"
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg\,rgba(247\,244\,239\,0.82)\,rgba(247\,244\,239\,0.18)\,rgba(17\,17\,17\,0.18))]" />
-        <div className="absolute left-6 top-6">
+
+        {/* Gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+
+        {/* Badge */}
+        <div className="absolute left-4 top-4">
           <Pill tone="sand">Katalog</Pill>
         </div>
-        <div className="absolute bottom-6 left-6 right-6 max-w-xl">
-          <p className="text-[10px] uppercase tracking-[0.32em] text-[var(--color-muted)]">
+
+        {/* Content */}
+        <div className="absolute inset-x-0 bottom-0 p-4 sm:p-6">
+          <p className="text-xs font-semibold uppercase tracking-widest text-gray-300">
             {meta}
           </p>
-          <p className="display-font mt-2 text-2xl font-semibold text-[var(--color-text-main)]">
+          <h3 className="mt-2 text-xl font-bold text-white sm:text-2xl">
             {title}
-          </p>
-          <p className="mt-2 text-sm text-[var(--color-text-muted)]">
-            Batafsil ko‘rish → fasad, interyer, material va detal.
+          </h3>
+          <p className="mt-2 text-sm text-gray-200">
+            Batafsil malumot va fotogalereya
           </p>
         </div>
       </div>
-    </a>
+    </div>
   );
 }
 
 export default function Showcase() {
   const [filter, setFilter] = useState<"All" | Project["status"] | Project["klass"] | Project["type"]>("All");
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
 
   const projects = useMemo(() => {
     if (filter === "All") return allProjects;
@@ -326,104 +375,194 @@ export default function Showcase() {
   const grid = projects.slice(1, 7);
 
   return (
-    <section id="loyihalar" className="relative py-20 sm:py-24 bg-[var(--color-bg-main)] overflow-hidden">
-      {/* safe background accents */}
+    <section id="loyihalar" className="relative overflow-hidden bg-gradient-to-b from-white via-gray-50 to-gray-100 py-12 sm:py-16 md:py-20">
+
+      {/* Background decorations */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute -left-24 -top-24 h-[420px] w-[420px] rounded-full bg-[var(--color-sand)] opacity-80 blur-3xl" />
-        <div className="absolute -right-28 top-12 h-[520px] w-[520px] rounded-full bg-[var(--color-brand-primary)] opacity-[0.14] blur-3xl" />
-        <div className="absolute inset-0 opacity-[0.16] mix-blend-multiply bg-[radial-gradient(rgba(0\,0\,0\,0.07)_1px,transparent_1px)] [background-size:18px_18px]" />
+        <div className="absolute -left-20 -top-20 h-64 w-64 rounded-full bg-gradient-to-r from-blue-500/10 to-blue-400/5 blur-3xl" />
+        <div className="absolute -right-20 top-1/3 h-96 w-96 rounded-full bg-gradient-to-r from-amber-500/5 to-amber-400/10 blur-3xl" />
+        <div className="absolute bottom-0 left-1/4 h-72 w-72 rounded-full bg-gradient-to-r from-gray-400/5 to-gray-300/5 blur-3xl" />
       </div>
 
-      <div className="container-shell relative z-10">
-        {/* header */}
-        <div className="flex flex-wrap items-end justify-between gap-6">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        {/* Header */}
+        <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-2xl">
-            <p className="text-[10px] uppercase tracking-[0.38em] text-[var(--color-muted)]">
-              Showcase
-            </p>
-            <h2 className="display-font mt-4 text-3xl font-semibold sm:text-4xl md:text-5xl leading-tight text-[var(--color-text-main)]">
-              Loyihalar vitrini — rasm, detal, natija
+            <span className="text-xs font-bold uppercase tracking-[0.3em] text-blue-600">
+              Loyihalar Portfoliomiz
+            </span>
+            <h2 className="mt-4 text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl lg:text-6xl">
+              Realizatsiya qilingan <span className="text-blue-600">loyihalar</span>
             </h2>
-            <p className="mt-4 text-sm sm:text-base leading-relaxed text-[var(--color-text-muted)]">
-              Bizning kuchimiz — ishlarimiz. Har bir loyiha: fasad, material, reja va yakuniy sifat.
+            <p className="mt-4 text-base text-gray-600 sm:text-lg">
+              Har bir loyiha — bu innovatsiya, sifat va estetikaning uygunligi.
+              Bizning ishlarimiz biz haqimizda gapiradi.
             </p>
           </div>
 
-          <a
-            href="#aloqa"
-            className="rounded-full bg-[var(--color-brand-primary)] px-6 py-3 text-[10px] font-bold uppercase tracking-[0.28em] text-white
-                       shadow-[0_10px_30px_-22px_rgba(17\,17\,17\,0.45)] hover:brightness-[1.05] transition"
+          <button className="group relative w-full overflow-hidden rounded-full bg-gradient-to-r from-blue-600 to-blue-500 
+                           px-6 py-3 text-sm font-bold uppercase tracking-widest text-white transition-all 
+                           hover:shadow-xl hover:shadow-blue-500/25 sm:w-auto">
+            <span className="relative z-10">Katalogni yuklab olish</span>
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-700 to-blue-600 
+                          transform -translate-x-full group-hover:translate-x-0 transition-transform duration-500" />
+          </button>
+        </div>
+
+        {/* Mobile filter toggle */}
+        <div className="mt-8 flex sm:hidden">
+          <button
+            onClick={() => setIsFilterOpen(!isFilterOpen)}
+            className="flex w-full items-center justify-between rounded-xl border border-gray-300 bg-white px-4 py-3"
           >
-            Katalog so‘rash
-          </a>
+            <span className="text-sm font-medium text-gray-700">
+              Filter: {filter === "All" ? "Hammasi" : filter}
+            </span>
+            <svg
+              className={`h-5 w-5 transition-transform ${isFilterOpen ? "rotate-180" : ""}`}
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
         </div>
 
-        {/* filters (yengil) */}
-        <div className="mt-8 flex flex-wrap gap-2">
-          <Chip active={filter === "All"} label="Hammasi" onClick={() => setFilter("All")} />
-          <Chip active={filter === "Sotuvda"} label="Sotuvda" onClick={() => setFilter("Sotuvda")} />
-          <Chip active={filter === "Qurilishda"} label="Qurilishda" onClick={() => setFilter("Qurilishda")} />
-          <Chip active={filter === "Topshirilgan"} label="Topshirilgan" onClick={() => setFilter("Topshirilgan")} />
-          <span className="mx-1 hidden sm:inline-block h-8 w-px bg-black/10 self-center" />
-          <Chip active={filter === "Premium"} label="Premium" onClick={() => setFilter("Premium")} />
-          <Chip active={filter === "Business"} label="Business" onClick={() => setFilter("Business")} />
-          <Chip active={filter === "Comfort"} label="Comfort" onClick={() => setFilter("Comfort")} />
-          <span className="mx-1 hidden sm:inline-block h-8 w-px bg-black/10 self-center" />
-          <Chip active={filter === "Residential"} label="Residential" onClick={() => setFilter("Residential")} />
-          <Chip active={filter === "Business"} label="Business type" onClick={() => setFilter("Business")} />
-          <Chip active={filter === "Mixed"} label="Mixed" onClick={() => setFilter("Mixed")} />
+        {/* Filters */}
+        <div className={`mt-6 ${isFilterOpen ? "block" : "hidden"} sm:block sm:mt-8`}>
+          <div className="flex flex-wrap gap-2">
+            <Chip active={filter === "All"} label="Hammasi" onClick={() => setFilter("All")} />
+
+            {/* Status filters */}
+            <div className="hidden w-full border-t border-gray-200 pt-4 sm:block sm:w-auto sm:border-0 sm:pt-0">
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                Status:
+              </span>
+            </div>
+            {["Sotuvda", "Qurilishda", "Topshirilgan"].map((status) => (
+              <Chip
+                key={status}
+                active={filter === status}
+                label={status}
+                onClick={() => setFilter(status as never)}
+              />
+            ))}
+
+            {/* Class filters */}
+            <div className="hidden w-full border-t border-gray-200 pt-4 sm:block sm:w-auto sm:border-0 sm:pt-0">
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                Klass:
+              </span>
+            </div>
+            {["Premium", "Business", "Comfort"].map((klass) => (
+              <Chip
+                key={klass}
+                active={filter === klass}
+                label={klass}
+                onClick={() => setFilter(klass as never)}
+              />
+            ))}
+
+            {/* Type filters */}
+            <div className="hidden w-full border-t border-gray-200 pt-4 sm:block sm:w-auto sm:border-0 sm:pt-0">
+              <span className="text-xs font-semibold uppercase tracking-widest text-gray-500">
+                Turi:
+              </span>
+            </div>
+            {["Residential", "Business", "Mixed"].map((type) => (
+              <Chip
+                key={type}
+                active={filter === type}
+                label={type}
+                onClick={() => setFilter(type as never)}
+              />
+            ))}
+          </div>
         </div>
 
-        {/* featured */}
-        <div className="mt-10">
+        {/* Featured Project */}
+        <div className="mt-8 sm:mt-12">
           <Featured p={featured} />
         </div>
 
-        {/* grid */}
-        <div className="mt-8 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {/* Projects Grid */}
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {grid.map((p) => (
             <ProjectCard key={p.id} p={p} />
           ))}
         </div>
 
-        {/* gallery banners */}
-        <div className="mt-10 grid gap-6 lg:grid-cols-3">
-          <BannerCard
-            title="Fasad katalogi"
-            meta="Material • ritm • detal"
-            image={PLACEHOLDER}
-          />
-          <BannerCard
-            title="Interyer uslubi"
-            meta="Lobby • umumiy zonalar"
-            image={PLACEHOLDER}
-          />
-          <BannerCard
-            title="Plan & funksionallik"
-            meta="Reja • quyosh • oqim"
-            image={PLACEHOLDER}
-          />
+        {/* Gallery Section */}
+        <div className="mt-12 sm:mt-16">
+          <div className="mb-6 text-center sm:text-left">
+            <h3 className="text-2xl font-bold text-gray-900 sm:text-3xl">
+              Loyihalarimizning <span className="text-blue-600">detallari</span>
+            </h3>
+            <p className="mt-2 text-gray-600">
+              Fasadlar, interyerlar va texnik yechimlar haqida batafsil
+            </p>
+          </div>
+
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <GalleryCard
+              title="Fasad Katalogi"
+              meta="Material • ritm • detal"
+              index={0}
+            />
+            <GalleryCard
+              title="Interyer Dizayni"
+              meta="Lobby • umumiy zonalar"
+              index={1}
+            />
+            <GalleryCard
+              title="Plan & Funksionallik"
+              meta="Reja • qiyosh • oqim"
+              index={2}
+            />
+          </div>
         </div>
 
-        {/* bottom strip */}
-        <div className="mt-10 rounded-[28px] border border-black/5 bg-white/70 backdrop-blur p-7 shadow-[0_16px_44px_-34px_rgba(17\,17\,17\,0.6)]">
-          <div className="flex flex-wrap items-center justify-between gap-6">
+        {/* Bottom Info Strip */}
+        <div className="mt-12 rounded-2xl border border-gray-200 bg-gradient-to-r from-white to-gray-50 p-6 
+                       shadow-lg sm:p-8 md:rounded-3xl">
+          <div className="flex flex-col items-center gap-6 sm:flex-row sm:justify-between">
             <div>
-              <p className="text-[10px] uppercase tracking-[0.34em] text-[var(--color-muted)]">
-                Eslatma
+              <p className="text-xs font-semibold uppercase tracking-widest text-blue-600">
+                Sifat Kafolati
               </p>
-              <p className="display-font mt-2 text-xl font-semibold text-[var(--color-text-main)]">
-                Biz ko‘rsatgan rasm — real ish intizomi va nazorat natijasi.
+              <p className="mt-2 text-lg font-bold text-gray-900 sm:text-xl">
+                Har bir detal — bu sifat va mukammallik isboti
               </p>
             </div>
+
             <div className="flex flex-wrap gap-2">
-              {["Fasad", "Material", "Detal", "QC Audit"].map((x) => (
-                <Pill key={x} tone="sand">
-                  {x}
+              {["Fasad Materiallari", "QC Audit", "Innovatsiya", "Garantiya"].map((item) => (
+                <Pill key={item} tone="sand">
+                  {item}
                 </Pill>
               ))}
             </div>
           </div>
+        </div>
+
+        {/* Results Counter */}
+        <div className="mt-12 grid grid-cols-2 gap-4 rounded-2xl bg-gradient-to-r from-blue-600 to-blue-500 p-6 
+                       text-white shadow-xl sm:grid-cols-4 sm:gap-6 sm:p-8 md:rounded-3xl">
+          {[
+            { value: "68", label: "Muvaffaqiyatli Loyiha" },
+            { value: "240K", label: "Kvadrat Metr" },
+            { value: "18+", label: "Yil Tajriba" },
+            { value: "100%", label: "Mijoz Qanoatlantirish" },
+          ].map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-3xl font-bold sm:text-4xl md:text-5xl">{stat.value}</div>
+              <div className="mt-2 text-xs font-medium uppercase tracking-widest text-blue-100 sm:text-sm">
+                {stat.label}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
