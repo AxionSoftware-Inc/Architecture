@@ -1,0 +1,58 @@
+import type { Service } from "./types";
+
+export const serviceItems = [
+  {
+    slug: "arxitektura",
+    title: "Arxitektura",
+    desc: "Shahar muhiti va inson ehtiyojlarini birlashtiruvchi mukammal yechimlar.",
+    image: "/hero/1.png",
+    bullets: ["Masterplan", "Konsept", "Fasad"],
+    tag: "Design",
+    process: ["Brief", "Konsept", "Ishchi loyiha", "Mualliflik nazorati"],
+  },
+  {
+    slug: "interyer-dizayn",
+    title: "Interyer Dizayn",
+    desc: "Ergonomika va estetika uyg'unligida yashash sifatini oshiruvchi makonlar.",
+    image: "/hero/2.png",
+    bullets: ["Living", "Office", "Retail"],
+    tag: "Interior",
+    process: ["Moodboard", "Planning", "Material tanlash", "Implementation"],
+  },
+  {
+    slug: "bim-va-hujjatlar",
+    title: "BIM va Hujjatlar",
+    desc: "Qurilish jarayonini aniq rejalashtirish uchun raqamli egizak va chizmalar.",
+    image: "/hero/3.png",
+    bullets: ["Revit", "Smeta", "Muhandislik"],
+    tag: "Technical",
+    process: ["Model setup", "Coordination", "Clash detection", "Issue set"],
+  },
+  {
+    slug: "qurilish-nazorati",
+    title: "Qurilish Nazorati",
+    desc: "Loyiha qog'ozdan hayotga ko'chayotganda sifat va muddat kafolati.",
+    image: "/hero/4.png",
+    bullets: ["Audit", "Texnik nazorat", "Monitoring"],
+    tag: "Supervision",
+    process: ["Site plan", "Weekly audit", "Risk tracking", "Final acceptance"],
+  },
+  {
+    slug: "landshaft",
+    title: "Landshaft",
+    desc: "Bino atrofidagi muhit: tabiat va arxitektura dialogi.",
+    image: "/hero/5.png",
+    bullets: ["Jamoat zonalari", "Yashil hudud", "Yoritish"],
+    tag: "Environment",
+    process: ["Site survey", "Zoning", "Planting", "Maintenance guide"],
+  },
+  {
+    slug: "turnkey",
+    title: "Turnkey",
+    desc: "G'oyadan kalitgacha, barcha jarayonlarni yagona pudratchi boshqaruvi.",
+    image: "/hero/6.png",
+    bullets: ["Boshqaruv", "Xaridlar", "Logistika"],
+    tag: "Management",
+    process: ["Budget", "Procurement", "Execution", "Handover"],
+  },
+] satisfies Service[];

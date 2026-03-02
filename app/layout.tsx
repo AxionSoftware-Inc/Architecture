@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cormorant_Garamond, Manrope } from "next/font/google";
 import "./globals.css";
 
@@ -20,8 +20,12 @@ export const metadata: Metadata = {
     "Apex Architecture - zamonaviy arxitektura loyihalari, interyer dizayni va mukammal qurilish yechimlari. Biz bilan kelajakni quring.",
   keywords: ["arxitektura", "dizayn", "qurilish", "apex architecture", "loyiha", "uzbekistan arxitektura"],
   authors: [{ name: "Apex Architecture" }],
-  viewport: "width=device-width, initial-scale=1",
   robots: "index, follow",
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
 };
 
 export default function RootLayout({
